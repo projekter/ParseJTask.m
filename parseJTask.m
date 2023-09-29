@@ -124,7 +124,7 @@ Sow[parseJTask$parsetype@@#]&/@Transpose[{var["type"],variables}]
 parseJTask$ordconstr[con_,A_,bara_,Q_,variables_,MatrixStore_,barvariables_]:=If[KeyExistsQ[con,"bk"],
 Module[{tmp=ConstantArray[0,Length[con["bk"]]]},
 (* Linear constraints with normal variables *)
-tmp+=makeSparse[Association[Lookup[A,"A",{}]],{Length@tmp,Length@variables}] . variables;
+tmp+=makeSparse[Association[A],{Length@tmp,Length@variables}] . variables;
 (* Linear constraints with PSD variables *)
 (it|->tmp[[it[[1]]+1]]+=getSparse[it[[3]],it[[4]],it[[2]],MatrixStore,barvariables])/@bara;
 (* Quadratic parts in constraints *)
@@ -159,7 +159,7 @@ parseJTask$oldconic[qcone_,variables_,conic_]:=If[KeyExistsQ[qcone,"type"],
 ]
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Function definition: parseJTask*)
 
 
