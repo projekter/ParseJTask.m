@@ -148,8 +148,8 @@ If[KeyExistsQ[AFE,"barf"],
 (it|->tmp[[it[[1]]+1]]+=getSparse[it[[3]],it[[4]],it[[2]],MatrixStore,barvariables])/@AFE["barf"]
 ];
 (it|->With[{dom=domains["type"][[it[[1]]+1]]},
-Sow[parseJTask$parsecone[dom[[1]],tmp[[it[[2]]+1]],dom[[2]],conic]];
-])/@Transpose[{ACC["domain"],ACC["afeidx"]}];
+Sow[parseJTask$parsecone[dom[[1]],tmp[[it[[2]]+1]]-it[[3]],dom[[2]],conic]];
+])/@Transpose[{ACC["domain"],ACC["afeidx"],ACC["b"]}];
 ]
 ]
 

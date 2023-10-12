@@ -11,4 +11,6 @@ This Mathematica package provides two functions:
 
 _Disclaimer:_ I wrote this package because I needed it. However, I only use Mosek's interior point optimizer. I have no idea how faithfully the parser reproduces mixed-integer problems/solutions or simplex solutions. You are very welcome to submit a pull request that complements the missing parts.
 
-_Note:_ The export to the JTASK format contained some bugs prior to version 10.1.11. These will probably not materialize unless you modify your task after an optimization (no guarantees!). But if you do so, the export will already be wrong. However, PTF had other bugs, so this wouldn't be a solution either. The only solution - which is also necessary for getting correct results in the optimization after problem modification - is to upgrade to the newest version.
+_Known export bugs in Mosek:_
+- Prior to version 10.1.15: The `b`-part in ACCs for the `QUAD` cone is missing. (It is present in PTF.)
+- Prior to version 10.1.11: If the task is modified after an optimization, neither JTASK nor PTF will be correct (with bugs in different places). But also the optimization itself will lead to wrong results, so better upgrade to the newest version. Or store and re-load the task in the internal TASK format.
