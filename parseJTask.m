@@ -8,7 +8,7 @@ parseJTask::usage="parseJTask[file,conic,defaultVarName,defaultBarVarName] trans
 
 
 parseJTaskSolution::usage=
-"parseJTaskSolution[file,defaultVarName,defaultBarVarName,defaultDualVarName,defaultSlackBarVarName,solutionType] translates the solutions of an optimization contained in a MOSEK JTASK file into a Mathematica association. The default variable and barvariable names are x and X; the default dual variable and dual barvariable names are y and Y. The default solution type is \"interior\" (\"basic\" and \"integer\") may also be possible.";
+"parseJTaskSolution[file,defaultVarName,defaultBarVarName,defaultDualVarName,defaultSlackBarVarName,solutionType] translates the solutions of an optimization contained in a MOSEK JTASK file into a Mathematica association. The default variable and barvariable names are x and X; the default dual variable and slack barvariable names are y and S. The default solution type is \"interior\" (\"basic\" and \"integer\") may also be possible.";
 
 
 Begin["parseJTask`"]
