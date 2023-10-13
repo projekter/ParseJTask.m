@@ -244,11 +244,11 @@ barslacks=MapIndexed[If[#1==="",Indexed[defaultSlackBarVarName,#2[[1]]],Symbol[#
 <|
 "problemStatus"->solutiondata["prosta"],
 "solutionStatus"->solutiondata["solsta"],
-Sequence@@(Rule@@@Transpose[{variables,solutiondata["xx"]}]),
-Sequence@@(Rule@@@Transpose[{barvariables,sMat[#,1]&/@solutiondata["barx"]}]),
-Sequence@@(Rule@@@Transpose[{normalduals,solutiondata["y"]}]),
-Sequence@@(Rule@@@Transpose[{accduals,solutiondata["doty"]}]),
-Sequence@@(Rule@@@Transpose[{barslacks,sMat[#,1]&/@solutiondata["bars"]}])
+Sequence@@(Rule@@@Transpose[{variables,Lookup[solutiondata,"xx",{}]}]),
+Sequence@@(Rule@@@Transpose[{barvariables,sMat[#,1]&/@Lookup[solutiondata,"barx",{}]}]),
+Sequence@@(Rule@@@Transpose[{normalduals,Lookup[solutiondata,"y",{}]}]),
+Sequence@@(Rule@@@Transpose[{accduals,Lookup[solutiondata,"doty",{}]}]),
+Sequence@@(Rule@@@Transpose[{barslacks,sMat[#,1]&/@Lookup[solutiondata,"bars",{}]}])
 |>
 ]
 ]
