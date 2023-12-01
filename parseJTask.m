@@ -78,7 +78,7 @@ parseJTask::unknownVt="Variable type `1` for variable `2` unknown";
 (*Cone types*)
 
 
-parseJTask$parsecone["zero",items_,_,_]:=items==0;
+parseJTask$parsecone["zero"|"rzero",items_,_,_]:=items==0;
 parseJTask$parsecone["rplus",items_,_,_]:=items\[VectorGreaterEqual]0;
 parseJTask$parsecone["rminus",items_,_,_]:=items\[VectorLessEqual]0;
 parseJTask$parsecone["r",items_,_,_]:=True;
