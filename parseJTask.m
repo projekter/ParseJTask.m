@@ -100,6 +100,10 @@ parseJTask$parsecone["ppow",items_,\[Alpha]_,_]:=Message[parseJTask::conedim,"dp
 parseJTask$parsecone["pgeom",items_,_,_]:=Power[Times@@Most[items], (Length[items]-1)^-1]>=Abs[Last[items]]&&And@@Thread[Most[items]>=0];
 parseJTask$parsecone["dgeom",items_,_,_]:=(Length[items]-1)Power[Times@@Most[items], (Length[items]-1)^-1]>=Abs[Last[items]]&&And@@Thread[Most[items]>=0];
 parseJTask$parsecone["svecpsd",items_,_,_]:=VectorGreaterEqual[{sMat[items],0},"SemidefiniteCone"];
+parseJTask$parsecone[{cone_,dim_},items_,args__]:=(
+If[Length[items]=!=dim,Message[parseJTask::conedim,{cone,dim},dim,Length[items]]];
+parseJTask$parsecone[cone,items,args]
+);
 parseJTask$parsecone[cone_,_,_,_]:=Message[parseJTask::conetype,cone];
 
 
